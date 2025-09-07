@@ -1,0 +1,40 @@
+#!/bin/bash
+set -eufo pipefail
+
+echo "--- Running yadm bootstrap script ---"
+
+# Standardmäßig annehmen, dass es keine GUI gibt
+has_gui=false
+
+# Logik zur automatischen Erkennung der GUI
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Auf macOS gehen wir immer von einer GUI aus
+    has_gui=true
+elif [[ -n "${DISPLAY-}" || -n "${WAYLAND_DISPLAY-}" ]]; then
+    # Unter Linux prüfen wir, ob eine DISPLAY- oder WAYLAND_DISPLAY-Variable gesetzt ist
+    has_gui=true
+fi
+
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+### macOS ###
+echo "››› Installing macOS packages with Homebrew..."
+if ! command -v brew &> /dev/null; then
+    echo "Homebrew not found. Installing..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh )"
+fi
+
+echo "››› Installing core tools..."
+brew install git neovim tmux ripgrep fd lazygit
+
+# Grafische Apps und Schriftarten nur installieren, wenn eine GUI erkannt wurde
+if [[ "$has_gui" == true ]]; then
+    echo "››› Installing GUI apps and fonts.    echo rew    echo "�ask ghos    echo "››› Installing GUI apps and       echo "››› Installing GUI apps and fontst
+    echo "�"$O    echo "�"$O    echo "�"$O    echo "�(Debian/Ubuntu) ###
+echo "››› Installing Linux core packages with APT..."
+sudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsudo a fsudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsudo a .gsudo apt-gsudo /jessedsudo apt-gsudo apt-gsudo apsudo  | grep -Po '"tag_nasudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsud.cosudo apt-gsudo apt-gsudo apsudo apt-est/sudo apt-gsudo apt-gsudo apsudo apt-gsudo a86sudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsudo apt-gsudo apt-gsudo apsudo a fsudo apt-gygst
+
+
+udo apt-gsudo apt-gsudo apsudo apt- ausf�udo apt-gsudo apt-gsudo apsudo apt- ausf�udo s_guudo apt-gsudo apt-gsudo apsudo apt- ausf�udo apt-gsudo apt-gsudo apsudo apt- asuudo apt-gsudo apt-gsudo apsudo a echo "››› Installing JetBrains Mono Nerd Font..."
+    mkdir -p ~/.local/share/fonts
+    curl -fLo "JetBrainsMono.zip" https://github.com/ryanoasis/nerd-fonts/releases/downloa    curl -fLo "JetBrainsMono.zip" https://github.com/ryanoasis/nerd-fontsre/f    curl -fLo "JetBrainsMono.zip" https://github.com/ryanho "--- Bootstrap complete ---"
